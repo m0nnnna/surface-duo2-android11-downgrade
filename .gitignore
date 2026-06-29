@@ -1,0 +1,6 @@
+# Large flashable blobs are distributed via GitHub Releases, not git.
+/super_built.img
+/images/
+/release_assets/
+*.zip
+super_built.img.part*
