@@ -14,9 +14,15 @@ The large binaries (the rebuilt `super` and the partition images) are **not in g
 the latest [**Release**](../../releases/latest). Download from there, then:
 
 1. Put `images.zip` next to `flash_all.bat` and **extract it** so you have an `images/` folder.
-2. Download all `super_built.img.part00..03`, put them in the same folder, and run
-   **`join_super.bat`** (Windows) or `bash join_super.sh` — this reassembles `super_built.img`.
+2. Download **all** the `super_built.img.part*` files (part00 … part12), put them in the same folder,
+   and run **`join_super.bat`** (Windows) or `bash join_super.sh` — this reassembles `super_built.img`.
    Optionally verify: `certutil -hashfile super_built.img SHA256` vs `super_built.img.sha256`.
+
+### Mirror — original `.img` and OTA downloads
+Direct download links for the source images and the official OTA updates (Android 11 **and** 12):
+**https://fs.nekos.farm/folder/cmqyviz2o000901pcpn8fg8op**
+Use these if you want the stock OTA zips (e.g. to sideload, or to rebuild `super` yourself per the
+*Rebuilding* section below).
 
 ## TL;DR — just fix my Duo 2
 
