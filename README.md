@@ -1,8 +1,7 @@
 # Surface Duo 2 — Android 12 → Android 11 downgrade (WORKING)
 
 Roll a Surface Duo 2 back to the **final Android 11 build, `2022.521.8`**, from a bricked /
-half-flashed state. This kit is the result of a full recovery done on **2026-06-29** on device
-`0F001JX211900A` (product `surfaceduo2`). It boots clean: setup screen, working touch, stable.
+half-flashed state. This kit is the result of a full recovery done on **2026-06-29** on device (product `surfaceduo2`). It boots clean: setup screen, working touch, stable.
 
 > **Bootloader must be UNLOCKED** (`fastboot getvar unlocked` → `yes`). This wipes all data.
 
@@ -177,9 +176,6 @@ wsl -d Ubuntu bash build/make_vbmeta_disabled.sh
   take an official OTA once booted (it will populate B via snapshot).
 - **`super` is NOT slotted** on this device — it's `fastboot flash super`, never `super_a`/`super_b`.
   Any script that flashes `super_a`/`super_b` (incl. the official `flashscript.txt`) is wrong here.
-- **WSL**: the default distro `xWSL` was a broken WSL1 — the lp tools were run via `wsl -d Ubuntu`.
-  (`C:\Users\Kake\.wslconfig` had an invalid `pageReporting=true` line that blocked WSL from
-  starting; it was commented out.)
 - Touch not working at setup is almost always a wrong/garbage `vendor` partition. A correct,
   genuine `super` (this kit) fixes it.
 - Do **not** wipe/flash `persist` (touch & sensor calibration) or `xbl_config` unless you know why.
