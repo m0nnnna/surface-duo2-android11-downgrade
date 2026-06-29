@@ -8,12 +8,23 @@ half-flashed state. This kit is the result of a full recovery done on **2026-06-
 
 ---
 
+## Download the flashables (GitHub Release)
+
+The large binaries (the rebuilt `super` and the partition images) are **not in git** — they're in
+the latest [**Release**](../../releases/latest). Download from there, then:
+
+1. Put `images.zip` next to `flash_all.bat` and **extract it** so you have an `images/` folder.
+2. Download all `super_built.img.part00..03`, put them in the same folder, and run
+   **`join_super.bat`** (Windows) or `bash join_super.sh` — this reassembles `super_built.img`.
+   Optionally verify: `certutil -hashfile super_built.img SHA256` vs `super_built.img.sha256`.
+
 ## TL;DR — just fix my Duo 2
 
-1. Put the phone in the bootloader: power off, then hold **Volume‑Up + Power** (or `adb reboot bootloader`).
-2. Confirm it's seen: `fastboot devices`
-3. Double‑click **`flash_all.bat`** (or run it from a terminal in this folder).
-4. Wait ~4–5 min. It reboots itself. First boot after the wipe takes 2–5 min — be patient.
+1. Get the flashables from the Release (above): extract `images/`, join `super_built.img`.
+2. Put the phone in the bootloader: power off, then hold **Volume‑Up + Power** (or `adb reboot bootloader`).
+3. Confirm it's seen: `fastboot devices`
+4. Double‑click **`flash_all.bat`** (or run it from a terminal in this folder).
+5. Wait ~4–5 min. It reboots itself. First boot after the wipe takes 2–5 min — be patient.
 
 That's it. The rest of this file explains *why* it works, so you can fix it again from scratch.
 
